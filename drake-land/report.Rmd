@@ -1,0 +1,22 @@
+---
+title: "Report: genetics of height"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(drake)
+```
+
+## Data
+
+```{r plot}
+readd(plot)
+```
+
+## Results
+
+```{r content}
+loadd(fit)
+summary(fit)
+```
