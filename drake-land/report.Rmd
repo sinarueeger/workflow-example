@@ -1,11 +1,12 @@
 ---
-title: "Report: genetics of height"
+title: "Report: a glimpse into genetics of height using openSNP data"
 output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(drake)
+library(tidyverse)
 ```
 
 Running `make(plan)` will generate a hidden folder called `.drake/`. 
@@ -27,7 +28,7 @@ readd(plot)
 
 First we load the two linear regression models using `loadd()`:
 
-```{r load.fits}
+```{r load-fits}
 loadd(fit.multiple)
 loadd(fit.simple)
 
@@ -37,20 +38,22 @@ loadd(fit.simple)
 
 `lm(height ~ genotype_i)`, for the genotypes `r paste(unique(fit.simple$genotype), collapse = ", ")`.
 
-The lm coefficients are in table \@ref(fig:results-simple).
+The lm coefficients are in table \@ref(tab:results-simple).
 
 ```{r results-simple}
-fit.simple %>% knitr::kable(format = "latex", caption = "Simple linear regression results.")
+fit.simple %>% 
+  knitr::kable(format = "latex", 
+               caption = "Simple linear regression results.")
 ```
 
 ### Multiple linear regression
 
 `lm(height ~ genotype1 + genotype2 + ...) %>% step()`, for the genotypes `r paste(unique(fit.simple$genotype), collapse = ", ")`.
 
-```
+The lm coefficients are in \@ref(tab:multiple).
 
-The lm coefficients are in \@ref(fig:results-multiple).
-
-```{r fit.multiple}
-fit.multiple %>% knitr::kable(format = "latex", caption = "Multiple linear regression results after AIC.")
+```{r results-multiple}
+fit.multiple %>% 
+  knitr::kable(format = "latex", 
+               caption = "Multiple linear regression results after AIC.")
 ```
