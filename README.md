@@ -4,7 +4,6 @@ Contains different workflow examples in different folders to show the beauty of 
 
 - [`wild-west`](wild-west/)
 - [`wild-west-pro`](wild-west-pro/)
-- [`make-land`](make-land/)
 - [`drake-land`](drake-land/)
 
 
