@@ -2,9 +2,10 @@
 
 Contains different workflow examples in different folders to show the beauty of various workflow techniques. 
 
-- [`wild-west`](wild-west/)
-- [`wild-west-pro`](wild-west-pro/)
-- [`drake-land`](drake-land/)
+- [`wild-west`](wild-west/): default
+- [`wild-west-pro`](wild-west-pro/): default with a `README` file
+- [`drake-land`](drake-land/): small drake example
+- [`drake-land-adv`](drake-land/): advanced drake for more complex folder structures
 
 
 ## Data used
