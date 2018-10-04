@@ -8,15 +8,49 @@ knitr::opts_chunk$set(echo = TRUE)
 library(drake)
 ```
 
+Running `make(plan)` will generate a hidden folder called `.drake/`. 
+
+There are two main drake functions that allow us to retrieve the drake objects created in the `plan` object in `make.R`: 
+
+- `readd(plan)`: 
+- `loadd(fit)`:
+
 ## Data
 
-```{r plot}
+We can access the plot with `readd()`.
+
+```{r plot, fig.width = 6, fig.height = 10}
 readd(plot)
 ```
 
 ## Results
 
-```{r content}
-loadd(fit)
-summary(fit)
+First we load the two linear regression models using `loadd()`:
+
+```{r load.fits}
+loadd(fit.multiple)
+loadd(fit.simple)
+
+```
+
+### Simple linear regression
+
+`lm(height ~ genotype_i)`, for the genotypes `r paste(unique(fit.simple$genotype), collapse = ", ")`.
+
+The lm coefficients are in table \@ref(fig:results-simple).
+
+```{r results-simple}
+fit.simple %>% knitr::kable(format = "latex", caption = "Simple linear regression results.")
+```
+
+### Multiple linear regression
+
+`lm(height ~ genotype1 + genotype2 + ...) %>% step()`, for the genotypes `r paste(unique(fit.simple$genotype), collapse = ", ")`.
+
+```
+
+The lm coefficients are in \@ref(fig:results-multiple).
+
+```{r fit.multiple}
+fit.multiple %>% knitr::kable(format = "latex", caption = "Multiple linear regression results after AIC.")
 ```

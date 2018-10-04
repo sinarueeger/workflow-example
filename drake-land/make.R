@@ -28,13 +28,15 @@ plan <- drake_plan(
   dat = full_join(dat.gt, dat.pheno),
   dat.long = tidyr::gather(dat, genotype, dosage, -c(id, height, height_class)), 
   plot = plot_genotype_phenotype(data = dat.long), 
-  fit = step(lm(height ~ . - id - height_class, data = dat)),
+  fit.multiple = lm_multiple_height(dat),
+  fit.simple = lm_simple_height(dat.long),
   report = rmarkdown::render(
     knitr_in("report.Rmd"),
     output_file = file_out("report.pdf"),
     quiet = TRUE
   )
 )
+
 
 config <- drake_config(plan) 
 vis_drake_graph(config) 
