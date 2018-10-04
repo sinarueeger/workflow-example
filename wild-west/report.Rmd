@@ -1,0 +1,57 @@
+---
+title: "Report: a glimpse into genetics of height using openSNP data"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+```{r import-data}
+load(file = here::here("data", "data-merged.RData"), verbose = TRUE)
+load(file = here::here("data", "results.RData"), verbose = TRUE)
+
+```
+
+## Data
+
+Plot the data
+```{r plot, fig.width = 6, fig.height = 10}
+
+ggplot(data = dat.long) + 
+    geom_boxplot(aes(dosage, height, group = dosage)) + 
+    facet_wrap(~genotype) + 
+    theme_bw() + 
+    xlab("genotype dosage") + 
+    scale_x_continuous(breaks = c(0, 1, 2)) ## pretty x labels
+
+
+```
+
+## Results
+
+
+### Simple linear regression
+
+`lm(height ~ genotype_i)`, for the genotypes `r paste(unique(fit.simple$genotype), collapse = ", ")`.
+
+The lm coefficients are in table \@ref(tab:results-simple).
+
+```{r results-simple}
+fit.simple %>% 
+  knitr::kable(format = "latex", 
+               caption = "Simple linear regression results.")
+```
+
+### Multiple linear regression
+
+`lm(height ~ genotype1 + genotype2 + ...) %>% step()`, for the genotypes `r paste(unique(fit.simple$genotype), collapse = ", ")`.
+
+The lm coefficients are in \@ref(tab:multiple).
+
+```{r results-multiple}
+fit.multiple %>% 
+  knitr::kable(format = "latex", 
+               caption = "Multiple linear regression results after AIC.")
+```

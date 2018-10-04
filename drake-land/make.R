@@ -7,6 +7,7 @@
 
 library(drake)
 library(tidyverse)
+library(broom)
 pkgconfig::set_config("drake::strings_in_dots" = "literals")
 
 ## if you need to rerun everything
