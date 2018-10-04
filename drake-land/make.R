@@ -4,7 +4,6 @@
 ## for other examples see
 ## drake::drake_examples()
 
-
 library(drake)
 library(tidyverse)
 library(broom)

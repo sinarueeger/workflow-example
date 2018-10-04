@@ -13,8 +13,8 @@ Running `make(plan)` will generate a hidden folder called `.drake/`.
 
 There are two main drake functions that allow us to retrieve the drake objects created in the `plan` object in `make.R`: 
 
-- `readd(plan)`: 
-- `loadd(fit)`:
+- `readd(plot)`: returns the object 
+- `loadd(plot)`: reads the object into R session (plot will appear in `ls()`)
 
 ## Data
 

@@ -1,7 +1,7 @@
 ## Data cleaning
 ## ///////////////////////////
 
-source("functions.R")
+source("code/functions.R")
 library(tidyverse)
 
 ## get all the data
@@ -33,4 +33,4 @@ dat.long <- tidyr::gather(dat, genotype, dosage, -c(id, height, height_class))
 
 ## save this as an RData file
 ## ---------------------------
-save(dat, dat.long, file = here::here("data", "data-merged.RData"))
+save(dat, dat.long, file = here::here( "data", "data-merged.RData"))
