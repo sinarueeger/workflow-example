@@ -45,7 +45,7 @@ plan <- drake_plan(
  
   ## report ------------------ 
   report = rmarkdown::render(
-    knitr_in("report.Rmd"),
+    knitr_in(here::here("report", "report.Rmd")),
     output_file = file_out("report.html"),
     quiet = TRUE
   )
