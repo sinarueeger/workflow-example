@@ -1,11 +1,3 @@
-###########################################################################
-###########################################################################
-###                                                                     ###
-###                         Functions                                   ###
-###                                                                     ###
-###########################################################################
-###########################################################################
-
 
 #' Map cats and dog data
 #'
@@ -13,10 +5,7 @@
 #' @param data dataset that contains the variable names long, lat, state and variable.
 #'
 #' @return ggplot2 object
-#'
-#' @examples
-#' map_cats_and_dogs("ratio_population", dat_with_states)
-#' 
+
 map_cats_and_dogs <- function(variable, data) {
   
   qp <- ggplot(data = data) +
