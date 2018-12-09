@@ -20,8 +20,8 @@ There are two main drake functions that allow us to retrieve the drake objects c
 ## Data
 
 ```{r data, echo=TRUE}
-loadd(dat_added)
-head(dat_added)
+loadd(data)
+head(data)
 ```
 
 ## Cats and dogs summary
