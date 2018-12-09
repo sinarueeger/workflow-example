@@ -1,0 +1,28 @@
+---
+title: "Tidytuesday week 24: Cats vs. Dogs"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source(here::here("src", "setup.R"))
+```
+
+```{r load_data, include=FALSE}
+## get summary_cats_and_dogs, plots_cats_and_dogs
+load(here::here("data", "results_cats_and_dogs.RData")) 
+
+```
+
+## Cats and dogs summary
+
+```{r summary, echo=FALSE, results='markup'}
+summary_cats_and_dogs %>% skimr::kable()
+```
+
+## Cats and dogs plots
+
+
+```{r plot, echo=FALSE}
+plots_cats_and_dogs
+```
