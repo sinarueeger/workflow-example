@@ -1,7 +1,7 @@
-all: data/data-merged.RData data/results.RData report/report.html
+all: data/data-merged.RData data/results.RData report/report.pdf
 
 clean:
-	rm -f data/data-merged.RData data/results.RData
+	rm -f data/data-merged.RData data/results.RData report/report.pdf report/report.tex
 
 data/data-merged.RData: code/A_dataprep.R
 	Rscript $<
