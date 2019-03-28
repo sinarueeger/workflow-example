@@ -3,11 +3,12 @@
 ## Simple examples
 Contains different workflow examples in different folders to show various workflow techniques. 
 
+- [`mini-docker`](mini-docker/): small [rocker](https://www.rocker-project.org/) example
+- [`makefile`](makefile/): makefile example
 - [`wild-west`](wild-west/): default
 - [`wild-west-pro`](wild-west-pro/): default with a `README` file
 - [`drake-land`](drake-land/): small drake example
 - [`drake-land-adv`](drake-land/): advanced drake for more complex folder structures (*work-in-progress*)
-- [`mini-docker`](mini-docker/): small [rocker](https://www.rocker-project.org/) example
 
 
 ### Data used
